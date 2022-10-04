@@ -1,5 +1,5 @@
 # %%
-import random
+import random # imports random module
 word_list = ["apple", "banana", "pear", "orange", "grape"] # creates the list of fruits
 print (word_list) # prints the list of fruits
 # %%
