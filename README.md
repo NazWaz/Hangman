@@ -34,7 +34,7 @@ The second milestone involved creating the variables for the game.
 
 - The first line of code was important as a hashtag `#` is used to indicate that it is not part of the code and is instead a comment. However, in VS Code specifically, the `# %%` has a special feature where it creates a magic cell. Essentially this allows the block of code following it to be run independently instead of running the full code, making the process much easier. Of course comments were added to the code also to help keep track.
 
-- The second line of code was also important for a later function. Though it was not used in this block with the list, the `import` function was used to import one of Python's built-in modules, the random module.
+- The second line of code was also important for later. Though it was not used in this block with the list, the `import` statement was used to import one of Python's built-in modules, the random module.
 
 ![](Documentation/2/2.png)
 
@@ -46,10 +46,32 @@ The second milestone involved creating the variables for the game.
 
 - An if-else loop was used to check the validity of the guess, that it was both a single character and from the alphabet. The code began with `if` and then the conditions followed. The length was checked using `len()` function and `.isalpha()` was used to check that the character is an actual letter. After these 2 conditions, a colon was used and the indented code was what happens should both conditions be true. In this case, if the guess was a single letter, the message `"Good guess!"` would be output to the user.
 
-- The `else` function provided the alternative outcome, should the `if` condition not be fulfilled. So if the character was more than 1 or a number for example, a different message would be printed: `"Oops! That is not a valid input."`.
+- The `else` statement provided the alternative outcome, should the `if` condition not be fulfilled. So if the character was more than 1 or a number for example, a different message would be printed: `"Oops! That is not a valid input."`.
 
 
 # Milestone 3
+
+The third milestone involved using what was learnt previously to set up functions to both ask for a user input, check the guess is valid and then return a response telling the user whether or not the guessed letter is in the random word.
+
+![](Documentation/3/1.png)
+
+- The process of checking the guesses to see whether it was part of the random word was assigned the function `check_guess(guess)` with the argument as the guess variable. In this block of code, the 3rd line uses `guess.lower` to turn the guess into a lower case letter. The following code is taken from the previous milestone and was used to create the list of fruits and pick a word at random.
+
+- An if statement was inserted at the end as part of the function, with the condition that `guess in word` meaning that the variable guess would be part of the word variable. In the case that this condition is true, a message is output to the user informing them the guess is part of the word and the outcome if the condition is false i.e. the letter is not part of the word, informs the user that their guess is not part of the word.
+
+- The printed messages in the if statement used f-strings to format the message with the guess variable. This was done by adding an `f` before the string inside the `()` brackets following print along with `{guess}` in place of where the guessed letter would go. This meant that whatever the user guessed would automatically be added into the messages output back to the user. 
+
+![](Documentation/3/2.png)
+
+- The process of asking the user for the actual input and checking it was assigned the function `ask_for_input` and only needed `()` with no argument neccessary. In this block of code, a while loop was used to ensure the code ran continuously. This was important as the user needed to be able to input another value if their initial input did not pass the desired check. The while loop had the condition set to True to achieve this result.
+
+- Using an if statement in the while loop allowed me to set up 2 outcomes in different conditions. If the guess was exactly 1 character and from the alphabet, the `break` commmand would end this loop and break out of it. If this condition was not acheived, the else outcome was outputting an error message for the user.
+
+- Finally, `check_guess(guess)` is used to call upon the `check_guess` function we defined earlier to run and actually check to see if the guess is included in the random word.
+
+![](Documentation/3/3.png)
+
+- This last line of code is simply `ask_for_input()` to call upon the `ask_for_input` function as a whole and was used to test the code was working also.
 
 
 # Milestone 4
