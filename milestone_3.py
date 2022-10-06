@@ -16,12 +16,23 @@ class Hangman:
 
     def check_guess(guess): # defines the guess checking function, passing guess as the argument
         guess = guess.lower() # turns guess into lowercase
-        import random # imports random module
-  
         if guess in word: # condition where guess is part of the random word
             print(f"Good guess! {guess} is in the word.") 
+
+            for i, letter in enumerate(word): # for each index i, letter is assigned for each character in word
+                if letter == guess: # condition where letter in the word is equal to guess character
+                    word_guessed[i] = guess # splices guess character into word guessed list
+
+            global num_letters # makes number of unique characters left a global variable
+        num_letters -= 1 # 1 less unique character left
+
         else:
+            global num_lives # makes number of lives a global variable
+            num_lives -= 1 # lose a life
             print(f"Sorry, {guess} is not in the word. Try again.")
+            print(f"You have {num_lives} lives left.")
+        
+        list_of_guesses.extend(guess) # adds latest guess to the list of guesses
 
     def ask_for_input(): # defines the asking for input function, with no argument
         while True: # used to make a continuous loop
@@ -32,10 +43,12 @@ class Hangman:
                 print("You already tried that letter.")
             else:
                 check_guess(guess) # calls the guess checking function, passing guess as the argument
+                break
+                
+# %%    
+ask_for_input() # calls the asking for input function
 
-    ask_for_input() # calls the asking for input function
 
 # %%
-ask_for_input() # calls the asking for input function            
-    
+ask_for_input(self) # calls the asking for input function
 # %%
