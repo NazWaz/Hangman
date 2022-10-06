@@ -24,7 +24,7 @@ class Hangman:
                     word_guessed[i] = guess # splices guess character into word guessed list
 
             global num_letters # makes number of unique characters left a global variable
-        num_letters -= 1 # 1 less unique character left
+            num_letters -= 1 # 1 less unique character left
 
         else:
             global num_lives # makes number of lives a global variable
@@ -39,16 +39,14 @@ class Hangman:
             guess = input("Enter a single letter") # asks for user input
             if not len(guess) == 1 or not guess.isalpha(): # checks if input is not 1 character or not from the alphabet
                 print("Invalid letter. Please, enter a single alphabetical character.") # outputs error message if guess is invalid
-            elif guess in list_of_guesses: # checks if input is already in the list of guesses
+            elif guess in list_of_guesses(self): # checks if input is already in the list of guesses
                 print("You already tried that letter.")
             else:
                 check_guess(guess) # calls the guess checking function, passing guess as the argument
                 break
+
                 
 # %%    
-ask_for_input() # calls the asking for input function
+Hangman.ask_for_input() # calls the asking for input function
 
-
-# %%
-ask_for_input(self) # calls the asking for input function
 # %%
