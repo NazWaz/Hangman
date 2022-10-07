@@ -9,7 +9,7 @@ class Game: # sets up the Hangman class
         self.num_lives = num_lives
 
         self.word = random.choice(word_list) # chooses a word at random from the list
-        self.word_guessed = [",", ",", ",", ",", ",", ","] # list of letters guessed
+        self.word_guessed = list(len(self.word)*"_") # list of letters guessed
         self.num_letters = len(set(self.word) - set(self.word_guessed)) # unique number of characters not yet guessed
         self.list_of_guesses = [] # list of guesses
 
@@ -50,12 +50,15 @@ def play_game():
 
     while True:
         if game.num_lives == 0:
+            print(game.word_guessed)
             print(f"You lost! The correct word is {game.word}.")
             break
         elif game.num_lives != 0 and game.num_letters <= 0:
+            print(game.word_guessed)
             print(f"Well done! The correct word is {game.word}. You have won the game!")
             break
         elif game.num_lives > 0:
+            print(game.word_guessed)
             game.ask_for_input()   
 # %%
 play_game()
