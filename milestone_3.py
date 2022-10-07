@@ -1,20 +1,19 @@
 # %%
 import random # imports random module
 
-class Hangman:
+class Hangman: # sets up the Hangman class
     
-    def __init__(self, word_list, num_lives):
+    def __init__(self, word_list, num_lives): # initialises the parameters i.e. what will be selected for each instance of the game
 
-        self.word_list = word_list
+        self.word_list = word_list # every attribute needs to start with self
         self.num_lives = num_lives
-
 
         self.word = random.choice(word_list) # chooses a word at random from the list
         self.word_guessed = [",", ",", ",", ",", ",", ","] # list of letters guessed
         self.num_letters = len(set(self.word) - set(self.word_guessed)) # unique number of characters not yet guessed
         self.list_of_guesses = [] # list of guesses
 
-    def check_guess(self, guess): # defines the guess checking function, passing guess as the argument
+    def check_guess(self, guess): # defines the guess checking function, passing this instance (self) and guess as the arguments
         guess = guess.lower() # turns guess into lowercase
         if guess in self.word: # condition where guess is part of the random word
             print(f"Good guess! {guess} is in the word.") 
@@ -32,7 +31,7 @@ class Hangman:
         
         self.list_of_guesses.extend(guess) # adds latest guess to the list of guesses
 
-    def ask_for_input(self): # defines the asking for input function, with no argument
+    def ask_for_input(self): # defines the asking for input function, with only self as the argument
         while True: # used to make a continuous loop
             guess = input("Enter a single letter") # asks for user input
             if not len(guess) == 1 or not guess.isalpha(): # checks if input is not 1 character or not from the alphabet
@@ -45,12 +44,5 @@ class Hangman:
 
                 
 # %%    
-hangman_game = Hangman(word_list = ["apple", "banana", "pear", "orange", "grape"], num_lives = 5)
-hangman_game.ask_for_input() # calls the asking for input function
-print (hangman_game.word)
-print (hangman_game.word_guessed)
-print (hangman_game.list_of_guesses)
-print (hangman_game.num_letters)
-print (hangman_game.num_lives)
-
-# %%
+hangman_game = Hangman(word_list = ["apple", "banana", "pear", "orange", "grape"], num_lives = 5) # creates the hangman_game instance using the Hangman class and the desired word list and number of lives
+hangman_game.ask_for_input() # calls the asking for input function using the hangman_game instance
