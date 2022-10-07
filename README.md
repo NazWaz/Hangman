@@ -76,5 +76,59 @@ The third milestone involved using what was learnt previously to set up function
 
 # Milestone 4
 
+The fourth milestone took everything learnt up until now and compiled everything into a class. Creating a class required setting up the functions as methods and variables as attributes within the class as a way to have the base code of checking for guesses and asking for inputs altogether so it can be called upon to create an instance. This would save having to repeat the same lines of code constantly.
+
+![](Documentation/4/1.png)
+
+- Before setting up the class, any imports were carried out, so the random module was imported. 
+
+- The class itself was set up using the name Hangman with `class Hangman:` and the attributes which were to be used as parameters were initialised and passed using the `def __init__()`function, with self as the first argument. The second and third arguments were the chosen parameters being the list of words `word_list` and the number of lives `num_lives`. These could be input into this class outside of the class for a different instance.
+
+- They were then, along with every attribute, given a `self.` prefix and this allowed all of these variables to be used later in the methods. The other attributes listed here were the random word needing to be guessed `self.word`, the list of letters guessed in the random word `self.word_guessed`, the unique number of characters left to guess `self.num_letters` and finally the list of guesses itself `self.list_guesses`. The list of letters guessed was given values as commas which would later be replaced by the correct letters guessed while the list of guesses was left empty and would be filled with every guess. The unique characters left to guess was calculated using the `len()` function along with the `set()` function. Together, the number unique characters in the random word string was found as well as the number of unique chracters in the characters of the word guessed string. This difference gave the number of unique characters left to guess.
+
+![](Documentation/4/2.png)
+
+- The first function to set up as a method was `check_guess(self, guess)` where now self needed to be the first argument and guess was the second passed through. 
+
+- The `.lower()` function was used to make the users guess into lower case. Then an `if` statement was used to check whether the guess was in the word or not and a for loop was used if the guess was in the word.
+
+- The `for` loop was used to go through every character in the `self.word` string through multiple iterations, using `i` as the index and letter as each individual character. Using `enumerate()` i was able to go through every letter and assign it to `letter`. Then another `if` loop was used to check if each letter was equal to the `guess` letter and if it was equal, the word guessed list would be updated using `self.word_guessed[i]` and equalling it to `guess`. Since `i` is the index of the random word, it would also be the index in the list of characters needing to be replaced for the guessed word.
+
+- Finally, outside of the `for` loop but still within the `if` loop, the number of unique characters was reduced by 1 using `self.num_letter -= 1`. As the guess would be correct in this situation, there would naturally be 1 less unique character left in the word to guess.
+
+- The `else` statement was used if the guess was not in the word. The lives of the user would have to be reduced by 1 using `self.num_lives -= 1` and a message indicating the updated lives would be printed also.
+
+- Outisde of both the `if` and `else` statements, the latest guess was added to the list using `self.list_of_guesses.extend(guess)`. It was outside because the list would have to be updated in both situations as a guess would have been made. The `.extend()` function was used because it adds in the character as another element to the empty list of guesses at the end.
+
+![](Documentation/4/3.png)
+
+- The second function to set up as another method was `ask_for_input(self)` where instead of no argument, self had to be passed. 
+
+- The same `while True:` loop was used to create a continuous loop however this time, the first `if` condition was checking if the input was incorrect i.e. it was not 1 character or from the alphabet. Using the `not` operator with the previous code, I was able to flip the boolean for both `len(guess)` and `guess.isalpha()`. Normally this condition would work if these were both true, but using `not` and `or`, I was able to activate this condition should either be false and this would print the error message.
+
+- `elif` was used instead of just else, to provide multiple conditions. This second condition was if the guess had already been guessed before i.e. it was in the list of guesses. Again this could be checked using the `in` operator. This would result in a different message being printed.
+
+- Lastly, for the `else` condition, the guess checking function was passed using `self.check_guess(guess)`, where only guess is needed as the argument however `self.` is used as a prefix as the instance of the method. A break is added at the end of this method to allow the loop to end after a successful guess.
+
+![](Documentation/4/4.png)
+
+- In a seperate magic cell, the code to test and use the class was written. The instance `hangman_game` was created using the `Hangman()` class as well as the word list and number of lives passed as the parameters. Then this could be used with the ask for input function as `hangman_game.ask_for_input()` with the instance I just created as the instance used to call the method.
+
 
 # Milestone 5
+
+The fifth and final milestone was used to create the full game itself.
+
+
+
+-
+
+
+-
+
+
+-
+
+-
+
+-
