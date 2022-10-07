@@ -1,5 +1,5 @@
 # %%
-import random # imports random module
+import sketch, random # imports random module
 
 class Game: # sets up the Hangman class
     
@@ -42,25 +42,27 @@ class Game: # sets up the Hangman class
                 self.check_guess(guess) # calls the guess checking function, passing guess as the argument
                 break
 
+    
+
 
 # %%
 def play_game():
     word_list = ["apple", "banana", "pear", "orange", "grape"]
-    game = Game(word_list = word_list, num_lives = 5)
+    game = Game(word_list = word_list, num_lives = 7) # creates the game instance using the Game class
 
     while True:
-        if game.num_lives == 0:
-            print(game.word_guessed)
-            print(f"You lost! The correct word is {game.word}.")
+        print(" ".join([str(a) for a in game.word_guessed])) # prints the current characters guessed
+        if game.num_lives == 0: # condition where lives are equal to 0
+            print(f"You lost! The correct word was {game.word}.")
             break
-        elif game.num_lives != 0 and game.num_letters <= 0:
-            print(game.word_guessed)
-            print(f"Well done! The correct word is {game.word}. You have won the game!")
+        elif game.num_lives != 0 and game.num_letters <= 0: # condition where lives are not 0 and there are no more unique characters
+            print(f"Well done! The correct word was {game.word}. You have won the game!")
             break
-        elif game.num_lives > 0:
-            print(game.word_guessed)
-            game.ask_for_input()   
+        elif game.num_lives > 0: # condition where lives are still more than 0
+            game.ask_for_input()   #calls the ask for input function using the game instance
 # %%
-play_game()
+play_game() # runs the play game function, with no argument needed
+
+#%%
 
 # %%
