@@ -1,5 +1,5 @@
 # %%
-import sketch, random # imports random module
+import random # imports random module
 
 class Game: # sets up the Hangman class
     
@@ -42,9 +42,6 @@ class Game: # sets up the Hangman class
                 self.check_guess(guess) # calls the guess checking function, passing guess as the argument
                 break
 
-    
-
-
 # %%
 def play_game():
     word_list = ["apple", "banana", "pear", "orange", "grape"]
@@ -62,7 +59,3 @@ def play_game():
             game.ask_for_input()   #calls the ask for input function using the game instance
 # %%
 play_game() # runs the play game function, with no argument needed
-
-#%%
-
-# %%
