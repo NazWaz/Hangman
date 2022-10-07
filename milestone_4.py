@@ -42,6 +42,7 @@ class Game: # sets up the Hangman class
                 self.check_guess(guess) # calls the guess checking function, passing guess as the argument
                 break
 
+
 # %%
 def play_game():
     word_list = ["apple", "banana", "pear", "orange", "grape"]
@@ -49,14 +50,14 @@ def play_game():
 
     while True:
         if game.num_lives == 0:
-            print("You lost!")
+            print(f"You lost! The correct word is {game.word}.")
+            break
+        elif game.num_lives != 0 and game.num_letters <= 0:
+            print(f"Well done! The correct word is {game.word}. You have won the game!")
             break
         elif game.num_lives > 0:
-            game.ask_for_input()
-        elif not game.num_lives == 0 and not game.num_letters > 0:
-            print("Well done! You have won the game!")
-            break
-
+            game.ask_for_input()   
 # %%
 play_game()
+
 # %%
