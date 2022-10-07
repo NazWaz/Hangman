@@ -59,3 +59,5 @@ def play_game():
             game.ask_for_input()   #calls the ask for input function using the game instance
 # %%
 play_game() # runs the play game function, with no argument needed
+
+# %%
