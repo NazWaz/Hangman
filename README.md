@@ -117,15 +117,17 @@ The fourth milestone took everything learnt up until now and compiled everything
 
 # Milestone 5
 
-The fifth and final milestone was used to create the full game itself.
+The fifth and final milestone was used to create the full game itself. A lot of the comments were edited out and instead docstrings were used for the class to outline the purpose of the class, the parameters and attributes as well as the methods it contained. Each method and function also contained docstrings and this helped make the main code easier to read and understand too.
 
 ![](Documentation/5/1.png)
 
-- This block of code was taken from the previous milestone. Instead of the class being named `Hangman` it was renamed to `Game` and kept the bulk of the code the same. There were a few minor changes however. The main one being the `word_guessed` list which was updated to fit any of the random words as they varied in length. I managed this using the `list()` and `len()` functions together along with `self.word` and multiplied the length of the random word by an underscore `_`, giving a list of underscores equal to the length of characters in the random word.
-
 ![](Documentation/5/2.png)
 
-- This new block of code added was used to create the function which ran the whole Hangman game. IT set up the parameters as the word list being the list of fruits and the number of lives being 7. The instance was set up as `game` using the `Game` class and a `while True` loop was used to continuously run the game.
+- This block of code was taken from the previous milestone. Instead of the class being named `Hangman` it was renamed to `Game` and kept the bulk of the code the same. There were a few minor changes however. The main one being the `word_guessed` list which was updated to fit any of the random words as they varied in length. I managed this using the `list()` and `len()` functions together along with `self.word` and multiplied the length of the random word by an underscore `_`, giving a list of underscores equal to the length of characters in the random word.
+
+![](Documentation/5/3.png)
+
+- This new block of code added was used to create the function which ran the whole Hangman game. It set up the parameters as the word list being the list of fruits and the number of lives being 7. The instance was set up as `game` using the `Game` class and a `while True` loop was used to continuously run the game.
 
 - Using `if` and `elif` statements, multiple outcomes were decided for multiple conditions. The user would lose the game if the lives equalled 0 `game.num_lives == 0`, i.e. they ran out of lives. They would then be given the message for losing and be told the actual word.
 
@@ -135,6 +137,4 @@ The fifth and final milestone was used to create the full game itself.
 
 - As an improvement to the original game, before the if statements, the current characters guessed was printed. Initially, it was just the `word_guessed` list being printed however to make it look better changes were made. By using the `.join()` function along with a `for` loop, I was able to cycle through each letter `str()` in the `word_guessed` list and combine them into a string before outputting it all. This resulted in no brackets or spaces, with only the underscores for blank letters and the correct characters when they were guessed.
 
-![](Documentation/5/3.png)
-
-- This final line of code simply called the play game function with no argument needed. Calling this function immediately started the game and prompts the user for an input.
+- This final line of code simply called the play game function. Calling this function immediately started the game and prompts the user for an input.
