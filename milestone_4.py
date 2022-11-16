@@ -1,4 +1,3 @@
-# %%
 import random
 
 class Game: 
@@ -87,7 +86,6 @@ class Game:
                 self.check_guess(guess)
                 break
 
-# %%
 def play_game():
     '''
     Plays the game and there are checks for 3 things:
@@ -116,5 +114,7 @@ def play_game():
             break
         elif game.num_lives > 0: 
             game.ask_for_input()   
-# %%
+
 play_game() 
+
+
