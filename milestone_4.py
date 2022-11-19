@@ -5,17 +5,14 @@ class Game:
     A Hangman game that asks the user for a guess (letter) and checks if it is in the word.
     It starts with a default number of lives and a random word from the word_list. 
 
-    Parameters:
-    ----------
+    Attributes:
+    ---------
     word_list: list
         A list of words to be used in the game.
     num_lives: int
         Number of lives the player has.
-
-    Attributes:
-    ---------
     word: str
-        The word to be gussed picked randomly from the word_list.
+        The word to be guessed picked randomly from the word_list.
     word_guessed: list
         A list of letters guessed.
     num_letters: int
@@ -30,8 +27,18 @@ class Game:
     ask_for_input 
         Asks the user for a letter and calls the check_guess method.
     '''
-    
+
     def __init__(self, word_list, num_lives): 
+        '''
+        Constructs all the neccessary attributes for the game object.
+
+        Parameters:
+        ----------
+        word_list: list
+        A list of words to be used in the game.
+        num_lives: int
+            Number of lives the player has.
+        '''
 
         self.word_list = word_list 
         self.num_lives = num_lives
@@ -52,6 +59,7 @@ class Game:
         guess: str
             The letter guessed by the user
         '''
+
         guess = guess.lower()
         if guess in self.word: 
             print(f"Good guess! {guess} is in the word.") 
@@ -76,6 +84,7 @@ class Game:
         2. If the letter has already been guessed
         The check_guess method is called if both checks are passed.
         '''
+
         while True: 
             guess = input("Enter a single letter ") 
             if not len(guess) == 1 or not guess.isalpha(): 
@@ -95,12 +104,8 @@ def play_game():
     - this means the user has won the game
     3. If the number of lives is more than 0
     - this means the game is still going and so calls the ask_for_input method
-
-    Parameters:
-    ----------
-    word_list: list
-        A list of words to be used in the game.
     '''
+    
     word_list = ["apple", "banana", "pear", "orange", "grape"]
     game = Game(word_list, 7) 
 
